@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import Optional
 
 
 class Student:
@@ -7,14 +7,14 @@ class Student:
         name: str,
         age: int,
         group: str,
-        grades: Optional[List[int]] = None,
+        grades: Optional[list[int]] = None,
     ):
         self.name = name
         self.age = age
         self.group = group
 
         if grades is None:
-            self._grades: List[int] = []
+            self._grades: list[int] = []
         else:
             self._grades = list(grades)
 
