@@ -27,12 +27,29 @@ class Student:
 
         self._grades.append(grade)
 
+    def get_average_grade(self) -> Optional[float]:
+        if not self._grades:
+            return None
+
+        summ = sum(self._grades)
+        count = len(self._grades)
+
+        return summ / count
+
     def get_info(self) -> str:
+        average = self.get_average_grade()
+
+        if average is None:
+            answer = "нет оценок"
+        else:
+            answer = f"{average:.2f}"
+
         information = (
             f"Студент: {self.name}\n"
             f"Возраст: {self.age}\n"
             f"Группа: {self.group}\n"
             f"Оценки: {self._grades if self._grades else 'нет'}\n"
+            f"Средний балл: {answer}"
         )
 
         return information
