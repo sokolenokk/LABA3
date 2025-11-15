@@ -18,19 +18,32 @@ class Student:
         else:
             self._grades = list(grades)
 
+    def add_grade(self, grade: int) -> None:
+        if not isinstance(grade, int):
+            raise TypeError("Оценка должна быть целым числом")
+
+        if grade < 0 or grade > 100:
+            raise ValueError("Оценка должна быть в диапазоне от 0 до 100")
+
+        self._grades.append(grade)
+
     def get_info(self) -> str:
-        info = (
+        information = (
             f"Студент: {self.name}\n"
             f"Возраст: {self.age}\n"
             f"Группа: {self.group}\n"
             f"Оценки: {self._grades if self._grades else 'нет'}\n"
         )
 
-        return info
+        return information
 
 
 if __name__ == "__main__":
     student = Student(name="Степан Соколовский", age=20, group="221131")
+
+    student.add_grade(81)
+    student.add_grade(40)
+    student.add_grade(100)
 
     info = student.get_info()
     print(info)
