@@ -61,6 +61,3 @@ if __name__ == "__main__":
     calculator.set_strategy(FixedDiscountStrategy(22.3))
     price_fix_discount = calculator.calculate_price(start_price)
     print(f"Изначальная цена: {start_price}, со скидкой 22.3 рубля: {price_fix_discount}")
-
-
-
